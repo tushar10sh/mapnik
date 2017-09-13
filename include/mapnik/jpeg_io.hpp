@@ -59,10 +59,10 @@ inline boolean empty_output_buffer (j_compress_ptr cinfo)
 {
     dest_mgr * dest = reinterpret_cast<dest_mgr*>(cinfo->dest);
     dest->out->write((char*)dest->buffer, BUFFER_SIZE);
-    if (!*(dest->out)) return false;
+    if (!*(dest->out)) return boolean(false);
     dest->pub.next_output_byte = dest->buffer;
     dest->pub.free_in_buffer = BUFFER_SIZE;
-    return true;
+    return boolean(true);
 }
 
 inline void term_destination( j_compress_ptr cinfo)
